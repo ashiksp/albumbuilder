@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @albums = @user.albums.paginate(page: params[:page], per_page: 3)
   end
 
   def create
@@ -57,14 +58,6 @@ class UsersController < ApplicationController
   end
 
   #Before filters
-
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_url, notice: "Authentication required...Please sign in." 
-    end
-    #redirect_to signin_url, notice: "Authentication required...Please sign in." unless signed_in?
-  end
 
   def correct_user
     @user = User.find(params[:id])

@@ -1,8 +1,31 @@
 <% provide(:title, 'Home') %>
 
+
+<% if signed_in? %>
+<div class="row">
+<aside class="span4">
+<section>
+<%= render 'shared/user_info' %>
+</section>
+<section>
+<%= render 'shared/album_form' %>
+</section>
+</aside>
+
+
+<div class="span8">
+<h3>Albums</h3>
+<%= render 'shared/feed' %>
+</div>
+</div>
+
+<% else %>
+
 <h1>Welcome to Photo Builder Application</h1>
 
 <center>
 <p>Here you can build your own album and can comment over each photo </p>
 <%= link_to "Sign up now!", new_user_path, class: "btn btn-large btn-primary" %>
 </center>
+
+<% end %>
