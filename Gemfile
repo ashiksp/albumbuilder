@@ -32,6 +32,11 @@ gem 'bootstrap-sass', '2.3.2.0'
 # to store password more secure
 gem 'bcrypt-ruby', '3.1.2'
 
+#pagination
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
+
 group :production do
 	gem 'rails_12factor'
 end
